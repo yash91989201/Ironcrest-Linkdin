@@ -8,6 +8,32 @@ interface FeedSectionProps {
 }
 
 export const FeedSection: React.FC<FeedSectionProps> = ({ posts, loading }) => {
+  // Sort posts from latest to oldest based on timeAgo
+  const sortPostsByTime = (postsToSort: Post[]): Post[] => {
+    const parseTimeAgo = (timeAgo: string): number => {
+      // Convert timeAgo to a sortable number (smaller = more recent)
+      if (timeAgo.endsWith('d')) {
+        // Days: "1d" = 1, "2d" = 2, etc.
+        return parseInt(timeAgo) || 0;
+      } else if (timeAgo.endsWith('mo')) {
+        // Months: "1mo" = 30, "2mo" = 60, etc. (approximate days)
+        const months = parseInt(timeAgo.replace('mo', '')) || 0;
+        return months * 30;
+      } else if (timeAgo.endsWith('y')) {
+        // Years: "1y" = 365, "2y" = 730, etc. (approximate days)
+        const years = parseInt(timeAgo.replace('y', '')) || 0;
+        return years * 365;
+      }
+      return 0; // Default for unknown format
+    };
+
+    return [...postsToSort].sort((a, b) => {
+      return parseTimeAgo(a.timeAgo) - parseTimeAgo(b.timeAgo);
+    });
+  };
+
+  const sortedPosts = sortPostsByTime(posts);
+
   if (loading) {
     return (
       <div className="space-y-4 mt-2">
@@ -37,7 +63,7 @@ export const FeedSection: React.FC<FeedSectionProps> = ({ posts, loading }) => {
         <button className="px-4 py-1.5 border border-gray-400 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-semibold whitespace-nowrap">Articles</button>
       </div>
 
-      {posts.map((post) => (
+      {sortedPosts.map((post) => (
         <div key={post.id} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             {/* Header */}
             <div className="px-4 pt-3 pb-2 flex gap-3">
@@ -50,8 +76,6 @@ export const FeedSection: React.FC<FeedSectionProps> = ({ posts, loading }) => {
                     <p className="text-xs text-gray-500">23,402 followers</p>
                     <div className="flex items-center gap-1 text-xs text-gray-500">
                         <span>{post.timeAgo}</span>
-                        <span>•</span>
-                        <span className="text-gray-500">Edited</span>
                         <span>•</span>
                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" className="w-3.5 h-3.5" focusable="false">
                             <path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H9.5v-.27a.75.75 0 01.22-.53l.56-.56a.75.75 0 01.53-.22h.27a.75.75 0 00.53-.22l.27-.27a.75.75 0 000-1.06l-.27-.27a.75.75 0 00-.53-.22h-.27A.75.75 0 0110 4.27v-.27A.75.75 0 0110.27 3.47l.27-.27A.75.75 0 0111 3a5 5 0 012.21 8.25z"></path>
