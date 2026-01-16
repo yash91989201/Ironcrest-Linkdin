@@ -5,7 +5,7 @@ import ceoImage from '../CEO.png';
 
 export const PeopleSection: React.FC = () => {
   const people: Person[] = [
-    { id: '47', name: 'Alexander Ironcrest', title: 'Founder & CEO', image: ceoImage, department: 'Leadership' },
+    { id: '47', name: 'Alexander Zenthera', title: 'Founder & CEO', image: ceoImage, department: 'Leadership' },
     {
       id: '1',
       name: 'Sarah Chen',
@@ -41,7 +41,7 @@ export const PeopleSection: React.FC = () => {
       department: 'Operations',
       image: 'https://picsum.photos/id/1005/200/200',
     },
-     {
+    {
       id: '6',
       name: 'Aisha Gupta',
       title: 'Sustainability Director',
@@ -103,38 +103,35 @@ export const PeopleSection: React.FC = () => {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 mt-2 p-6">
       <h2 className="text-xl font-bold text-gray-900 mb-4">People</h2>
-      
+
       <div className="flex gap-2 mb-6 overflow-x-auto no-scrollbar pb-2">
-         <button
-           onClick={() => setActiveFilter('All')}
-           className={`px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap ${
-             activeFilter === 'All'
-               ? 'bg-green-700 text-white'
-               : 'border border-gray-400 text-gray-600 hover:bg-gray-100'
-           }`}
-         >
-           All Employees
-         </button>
-         <button
-           onClick={() => setActiveFilter('Engineering')}
-           className={`px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap ${
-             activeFilter === 'Engineering'
-               ? 'bg-green-700 text-white'
-               : 'border border-gray-400 text-gray-600 hover:bg-gray-100'
-           }`}
-         >
-           Engineering
-         </button>
-         <button
-           onClick={() => setActiveFilter('Operations')}
-           className={`px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap ${
-             activeFilter === 'Operations'
-               ? 'bg-green-700 text-white'
-               : 'border border-gray-400 text-gray-400 hover:bg-gray-100'
-           }`}
-         >
-           Operations
-         </button>
+        <button
+          onClick={() => setActiveFilter('All')}
+          className={`px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap ${activeFilter === 'All'
+              ? 'bg-green-700 text-white'
+              : 'border border-gray-400 text-gray-600 hover:bg-gray-100'
+            }`}
+        >
+          All Employees
+        </button>
+        <button
+          onClick={() => setActiveFilter('Engineering')}
+          className={`px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap ${activeFilter === 'Engineering'
+              ? 'bg-green-700 text-white'
+              : 'border border-gray-400 text-gray-600 hover:bg-gray-100'
+            }`}
+        >
+          Engineering
+        </button>
+        <button
+          onClick={() => setActiveFilter('Operations')}
+          className={`px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap ${activeFilter === 'Operations'
+              ? 'bg-green-700 text-white'
+              : 'border border-gray-400 text-gray-400 hover:bg-gray-100'
+            }`}
+        >
+          Operations
+        </button>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -142,29 +139,23 @@ export const PeopleSection: React.FC = () => {
           <div key={person.id} className="flex items-start gap-3 p-3 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
             <img src={person.image} alt={person.name} className="w-16 h-16 rounded-full object-cover" />
             <div className="flex-1">
-               <h3 className="font-semibold text-gray-900 text-base">{person.name}</h3>
-               <p className="text-sm text-gray-600 mb-2">{person.title}</p>
+              <h3 className="font-semibold text-gray-900 text-base">{person.name}</h3>
+              <p className="text-sm text-gray-600 mb-2">{person.title}</p>
                <button
-                 onClick={() => setShowRestricted(true)}
-                 className="flex items-center gap-1 px-4 py-1 rounded-full border border-gray-500 text-gray-600 font-semibold text-sm hover:border-gray-900 hover:bg-gray-50 transition-colors"
+                 disabled
+                 className="flex items-center gap-1 px-4 py-1 rounded-full border border-gray-300 text-gray-400 font-semibold text-sm bg-gray-50 cursor-not-allowed transition-colors"
                >
-                  <UserPlus className="w-4 h-4" />
-                  Connect
+                 <UserPlus className="w-4 h-4" />
+                 Connect
                </button>
             </div>
           </div>
         ))}
-      </div>
-      <div className="mt-6 text-center border-t border-gray-100 pt-4">
-          <button
-            onClick={() => setShowRestricted(true)}
-            className="text-sm font-semibold text-gray-600 hover:text-gray-900"
-          >
-            Show all 10,000+ employees →
-          </button>
-      </div>
+       </div>
+       <div className="mt-6 border-t border-gray-100 pt-4">
+       </div>
 
-      {showRestricted && (
+       {showRestricted && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
           <div className="bg-white rounded-lg shadow-lg max-w-sm w-full mx-4 border border-gray-200 p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-2">Region restricted</h3>

@@ -43,21 +43,18 @@ export const Sidebar: React.FC = () => {
                     <h3 className="text-sm font-semibold text-gray-900 leading-tight hover:underline cursor-pointer">{company.name}</h3>
                     <p className="text-xs text-gray-500 leading-tight mt-0.5">{company.industry}</p>
                     <p className="text-xs text-gray-500 mt-0.5 mb-2">{company.followers.toLocaleString()} followers</p>
-                    <button 
-                      onClick={() => setShowRestricted(true)}
-                      className="w-full flex items-center justify-center gap-1 border rounded-full py-1 font-semibold transition-colors text-sm border-gray-600 text-gray-600 hover:bg-gray-100 hover:border-gray-800"
-                    >
+                     <button 
+                       onClick={(e) => e.preventDefault()}
+                       className="w-full flex items-center justify-center gap-1 border rounded-full py-1 font-semibold transition-colors text-sm border-gray-600 text-gray-600 hover:bg-gray-100 hover:border-gray-800"
+                     >
                       <Plus className="w-4 h-4" />
                       Follow
                     </button>
                  </div>
               </div>
             ))}
-          </div>
-          <button className="w-full mt-4 py-1 text-sm font-semibold text-gray-600 hover:bg-gray-100 rounded transition-colors">
-              Show all
-          </button>
-        </div>
+           </div>
+         </div>
       </div>
 
       {showRestricted && (

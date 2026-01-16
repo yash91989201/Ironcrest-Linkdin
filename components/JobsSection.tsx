@@ -13,7 +13,7 @@ export const JobsSection: React.FC = () => {
       location: 'Aberdeen, Scotland (Hybrid)',
       type: 'Full-time',
       postedAgo: '2 days ago',
-      companyName: 'Ironcrest Developers',
+      companyName: 'Zenthera groups',
       companyLogo: LOGO_URL
     },
     {
@@ -22,7 +22,7 @@ export const JobsSection: React.FC = () => {
       location: 'Houston, TX, USA (On-site)',
       type: 'Contract',
       postedAgo: '5 days ago',
-      companyName: 'Ironcrest Developers',
+      companyName: 'Zenthera groups',
       companyLogo: LOGO_URL
     },
     {
@@ -31,7 +31,7 @@ export const JobsSection: React.FC = () => {
       location: 'Dubai, UAE (On-site)',
       type: 'Full-time',
       postedAgo: '1 week ago',
-      companyName: 'Ironcrest Developers',
+      companyName: 'Zenthera groups',
       companyLogo: LOGO_URL
     },
     {
@@ -40,7 +40,7 @@ export const JobsSection: React.FC = () => {
       location: 'Oslo, Norway',
       type: 'Full-time',
       postedAgo: '2 weeks ago',
-      companyName: 'Ironcrest Developers',
+      companyName: 'Zenthera groups',
       companyLogo: LOGO_URL
     }
   ];

@@ -20,23 +20,26 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ description, loading
           {description}
         </p>
       )}
-      
+
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
         <div>
-           <h3 className="text-gray-500 font-semibold mb-1">Website</h3>
-           <a href="http://www.ironcrestdevelopers.com" target="_blank" rel="noopener noreferrer" className="text-linkedin-blue hover:underline font-semibold">www.ironcrestdevelopers.com</a>
+          <h3 className="text-gray-500 font-semibold mb-1">Website</h3>
+          <a href="http://www.zentheragroups.com" target="_blank" rel="noopener noreferrer" className="text-linkedin-blue hover:underline font-semibold">www.zentheragroups.com</a>
         </div>
-        <div>
+         <div>
            <h3 className="text-gray-500 font-semibold mb-1">Phone</h3>
-           <span className="text-gray-900">07943494755</span>
+           <div className="flex flex-col gap-1">
+             <span className="text-gray-900">08069754754</span>
+             <span className="text-gray-900">08062366936</span>
+           </div>
+         </div>
+        <div>
+          <h3 className="text-gray-500 font-semibold mb-1">Industry</h3>
+          <span className="text-gray-900">Offshore Construction & Power</span>
         </div>
         <div>
-           <h3 className="text-gray-500 font-semibold mb-1">Industry</h3>
-           <span className="text-gray-900">Offshore Construction & Power</span>
-        </div>
-        <div>
-           <h3 className="text-gray-500 font-semibold mb-1">Company size</h3>
-           <span className="text-gray-900">10,000+ employees</span>
+          <h3 className="text-gray-500 font-semibold mb-1">Company size</h3>
+          <span className="text-gray-900">10,000+ employees</span>
         </div>
       </div>
     </div>

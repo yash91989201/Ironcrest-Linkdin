@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const [isRestricted, setIsRestricted] = useState<boolean>(false);
 
   const companyDetails: CompanyDetails = {
-    name: 'Ironcrest Developers',
+    name: 'Zenthera groups',
     tagline: 'Global Leaders in Offshore Construction & Power Infrastructure.',
     industry: 'Civil Engineering • Oil & Energy • Construction',
     location: 'Metropolis, NY',
@@ -53,7 +53,7 @@ const App: React.FC = () => {
            </div>
            <h2 className="text-xl font-bold text-gray-900 mb-2">Page is restricted</h2>
            <p className="text-gray-600 text-sm mb-6">You need permission to access this section.</p>
-           <button 
+           <button
              onClick={() => setIsRestricted(false)}
              className="w-full bg-linkedin-blue hover:bg-linkedin-blueHover text-white font-semibold py-2.5 px-4 rounded-full transition-colors"
            >
@@ -69,13 +69,13 @@ const App: React.FC = () => {
       <Navbar onNavClick={() => setIsRestricted(true)} />
 
       <main className="pt-[84px] sm:pt-[72px] max-w-[1128px] mx-auto px-0 sm:px-4 grid grid-cols-1 md:grid-cols-[1fr_300px] gap-6">
-        
+
         {/* Left Column (Main Content) */}
         <div className="flex flex-col">
           <HeroSection details={companyDetails} />
-          
+
           <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
-          
+
           <div className="mt-2">
             {activeTab === Tab.HOME && (
               <>
